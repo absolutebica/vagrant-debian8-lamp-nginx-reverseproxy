@@ -22,17 +22,9 @@ PASSWORD='root'
 PROJECTFOLDER='project'
 WEBSERVERIP='192.168.33.23' #Change based on VagrantFile
 
-
 # default stops at /var/www/html.  Leave Blank if project is in www
 ADDTIONALPATH='/public_html'
 
-echo "#######################################"
-echo " "
-echo "Make ${PROJECTFOLDER} folder in /var/www/html/"
-echo " "
-echo "#######################################"
-# create project folder
-[ ! -d /var/www/html/${PROJECTFOLDER} ] sudo mkdir "/var/www/html/${PROJECTFOLDER}"
 
 # update / upgrade
 sudo apt-get update
@@ -204,6 +196,7 @@ echo "${modifyports}" > /etc/apache2/ports.conf
 # enable mod_rewrite
 sudo a2enmod rewrite
 
+
 echo "#######################################"
 echo " "
 echo "Restart Apache and Nginx"
@@ -213,6 +206,8 @@ echo "#######################################"
 service apache2 restart
 # restart apache
 service nginx restart
+
+
 
 echo "#######################################"
 echo " "
